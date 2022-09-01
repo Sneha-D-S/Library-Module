@@ -1,7 +1,7 @@
 # Library-Module
 Small app made using Angular, employing three modules 'log-in', 'register' and 'library home page'. 
 
-The app implements 'angular routing' to link the modules. It uses 'template driven forms' to recieve user data and store it in the browser's local storage. The app also displays a table that displays placeholder data received from an API call.
+The app implements 'angular routing' to link the modules. It uses 'template driven forms' to receive user data and store it in the browser's local storage. The app also displays a table that displays placeholder data received from an API call.
 
 <img width="900" alt="Screenshot 2022-09-01 at 7 06 19 PM" src="https://user-images.githubusercontent.com/64400673/187927702-1ac0cbc5-4514-48da-9a93-9404c473941e.png">
 <img width="900" alt="Screenshot 2022-09-01 at 7 04 59 PM" src="https://user-images.githubusercontent.com/64400673/187927651-dbdb8ce2-1fd0-440e-8647-df60b4d40c80.png">
