@@ -1,0 +1,89 @@
+<!-- As a heading -->
+<nav
+  class="navbar navbar-dark bg-dark d-flex p-2 align-items-center"
+  style="display: block"
+>
+  <span class="navbar-brand mb-0 h1">Library Module</span>
+  <button
+    type="button"
+    class="btn btn-link fa-li"
+    routerLink="/login"
+    style="color: white"
+  >
+    Log-out
+  </button>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center">
+  <div class="p-2 d-flex align-items-start flex-column bd-highlight">
+    <h4 class="p-2 bd-highlight">Book Series</h4>
+  </div>
+
+  <div class="p-2 bd-highlight sub_nav ml-auto p-2 bd-highlight">
+    <button
+      class="view_btn ml-auto p-2 bd-highlight btn btn-outline-secondary btn-sm material-icons-round"
+      [class.active]="viewMode == 'list'"
+      (click)="viewMode = 'list'"
+    >
+      List
+    </button>
+    <button
+      class="view_btn ml-auto p-2 bd-highlight btn btn-outline-secondary btn-sm"
+      [class.active]="viewMode == 'cards'"
+      (click)="viewMode = 'cards'"
+    >
+      Cards
+    </button>
+  </div>
+</div>
+<div class="d-flex justify-content-between align-items-start">
+  <div class="p-2 d-flex align-items-start flex-column bd-highlight">
+    <button
+      (click)="newBook()"
+      class="btn btn-outline-dark btn-md"
+      style="margin: 0px"
+    >
+      Add book
+    </button>
+  </div>
+
+  <div class="p-2 bd-highlight sub_nav ml-auto p-2 bd-highlight">
+    <button
+      (click)="sortByShelf()"
+      class="btn btn-outline-dark btn-md"
+      style="margin-left: 8px"
+    >
+      Sort
+    </button>
+  </div>
+</div>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'list'" id="home">
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Shelf Number</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let book of appservice.books; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.userId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngSwitchCase="'cards'">
+    <div *ngFor="let book of appservice.books; let i = index">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">#{{ i + 1 }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ book.title }}</h6>
+          <p class="card-text">{{ book.userId }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

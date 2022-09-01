@@ -1,0 +1,19 @@
+th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+#home {
+  height: 500px;
+  overflow: scroll;
+  margin: 24px;
+}
+nav {
+  padding: 16px;
+}
+.sub_nav {
+  margin: 8px;
+}
+.view_btn {
+  margin: 8px;
+}

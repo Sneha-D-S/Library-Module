@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="container1 d-inline-flex p-2 flex-column">
+    <div class="heading">
+      <h5>Welcome</h5>
+      <h5>to</h5>
+      <h3>Library Module</h3>
+      <p>
+        New User?<button
+          type="button"
+          class="btn btn-link"
+          routerLink="/register"
+        >
+          Register
+        </button>
+      </p>
+    </div>
+    <form #f="ngForm">
+      <!--Email field-->
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          ngModel
+          #emailId="ngModel"
+          (change)="log(emailId)"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          required
+          placeholder="eg: name@abc.com"
+          id="loginEmail"
+          name="emailId"
+        />
+        <!--Error message for Email field-->
+        <div class="alert" *ngIf="emailId.touched && !emailId.valid">
+          <small *ngIf="emailId.errors?.['required']">E-mail is required</small
+          ><small *ngIf="emailId.errors?.['pattern']"
+            >Please enter a valid e-mail</small
+          >
+        </div>
+        <!--End of Error message for Email field-->
+      </div>
+      <!--Password field-->
+      <div class="form-group formSpace">
+        <label for="loginPassword">Password</label>
+
+        <input
+          type="password"
+          class="form-control"
+          ngModel
+          #password1="ngModel"
+          (change)="log(password1)"
+          minlength="5"
+          maxlength="8"
+          required
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+          placeholder="Enter password"
+          id="loginPassword"
+          name="password1"
+        />
+        <!--Error message for Email field-->
+        <div
+          class="alert"
+          *ngIf="password1.touched && !password1.valid"
+          style="margin-bottom: 0px; display: inline"
+        >
+          <small *ngIf="password1.errors?.['required']"
+            >Password is required</small
+          ><small *ngIf="password1.errors?.['minlength']"
+            >Password should be at least 5 characters</small
+          >
+        </div>
+      </div>
+      <button
+        type="submit"
+        (click)="onSubmit(f)"
+        class="btn btn-dark btn-block"
+        style="
+          width: 70%;
+          margin-left: 15%;
+          margin-top: 24px;
+          margin-bottom: 0px;
+        "
+      >
+        Login
+      </button>
+    </form>
+
+    <div class="footer">
+      <p>
+        <button class="btn btn-link" (click)="forgotPass()">
+          Forgot Password?
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
